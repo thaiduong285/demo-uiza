@@ -1,0 +1,11 @@
+.entity-create-form .entity-table table {
+    margin-top: 20px;
+    width: 100%;
+}
+.entity-create-form .entity-table table thead {
+    background-color: rgba(51, 51, 51, 0.24);
+}
+
+.form-create-entity-url button{
+    margin-top: 10px;
+}

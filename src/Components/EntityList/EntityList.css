@@ -1,0 +1,62 @@
+.entity-list {
+    margin-top: 40px;
+}
+
+.entity-list .control-panel {
+    text-align: right;
+}
+
+.entity-list .control-panel .panel-filter {
+    width: 300px;
+    margin-left: auto;
+}
+
+.entity-list .panel-actions {
+    margin-top: 20px;
+}
+
+.entity-list .panel-actions .button {
+    margin-right: 10px;
+}
+
+.entity-list .list-table {
+    margin-top: 20px;
+}
+
+.entity-list .list-table table {
+    table-layout: auto;
+    width: 100%;
+}
+
+.entity-list .list-table .row-entity {
+    cursor: pointer;
+}
+
+.entity-list .list-table .row-entity:nth-child(2n) {
+    background-color:  rgba(51, 51, 51, 0.1);
+}
+
+.entity-list .list-table table .success {
+    background-color: green;
+}
+
+.entity-list .list-table table thead {
+    background-color: rgba(51, 51, 51, 0.24);
+}
+
+.entity-list .list-table table thead th, td {
+    padding: 5px 10px;
+}
+
+.entity-list .list-table table tbody tr {
+    margin-top: 10px;
+}
+
+.entity-list .list-table table tbody .entity-poster {
+    width: 100px;
+}
+
+.entity-list .list-table table .col-entity-name a {
+    text-decoration: none;
+    color: black;
+}

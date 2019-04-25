@@ -1,0 +1,27 @@
+.livestream-detail {
+    margin-top: 40px;
+}
+
+.livestream-detail .livestream-control button {
+    margin: 0 5px;
+}
+
+.livestream-detail .setting-livestream-container {
+    margin-top: 10px;
+}
+
+.livestream-detail .btn-edit-livestream {
+    float: right;
+}
+
+.livestream-detail .livestream-config .btn-edit-livestream {
+    flex: none;
+}
+
+/* .livestream-detail .livestream-config .livestream-info, .livestream-setting {
+    width: 50%;
+}
+
+.livestream-detail .livestream-config .livestream-setting {
+    width: 50%;
+} */

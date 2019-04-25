@@ -1,0 +1,28 @@
+.entity-detail {
+    margin-top: 40px;
+}
+
+.entity-detail .entity-player .not-published-entity-img {
+    width: 500px;
+    height: 300px;
+    background-image: url("/assets/img/imageHolder.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.entity-detail .detail .entity-info .entity-detail-header {
+    display: flex;
+}
+
+.entity-detail .detail .entity-info .entity-detail-header button {
+    margin-left: auto;
+}
+
+.entity-detail .detail .entity-form-detail {
+    text-align: center;
+}
+
+.entity-detail .detail .entity-form-detail .submit-form-edit {
+    margin: 10px 0;
+    width: 50%;
+}

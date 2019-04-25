@@ -1,0 +1,20 @@
+.livestream-list {
+    margin-top: 40px;
+}
+
+.livestream-list .list-container {
+    display: flex;
+}
+
+.livestream-list .list-container .card-entity {
+    width: 500px;
+    padding: 0 5px;
+}
+
+.livestream-list .list-container .card-entity img {
+    width: 100%;
+}
+
+.livestream-list .list-container .card-entity .entity-card-control button {
+    margin-left: 10px;
+}
