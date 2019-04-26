@@ -34,27 +34,36 @@ class EntityDetail extends React.Component {
         this.retreiveAnEntity();
     }
 
-    retreiveAnEntity = async () => {
-        const { id: entityId } = this.props.match.params;
-        const res = await axios.get(`/media/entity?id=${entityId}`);
-        const { data } = res.data;
-
-        this.setState({ 
-            entity: data,
-            isEntityPublished: data.publishToCdn === "success" ? true : false,
-            name: data.name,
-            description: data.description
-        });
+    retreiveAnEntity = () => {
+        return new Promise(async (resolve, reject) => {
+            const { id: entityId } = this.props.match.params;
+            try {
+                const res = await axios.get(`/media/entity?id=${entityId}`);
+                const { data } = res.data;
+                
+                this.setState({ 
+                    entity: data,
+                    isEntityPublished: data.publishToCdn === "success" ? true : false,
+                    name: data.name,
+                    description: data.description
+                });
+                resolve(data);
+            }
+            catch(err) {
+                reject(err);
+                throw new Error(err);
+            }
+        })
     }
 
-    initializeUizaPlayer = () => {
-        const { id: entityId } = this.props.match.params;
+    initializeUizaPlayer = async () => {
+        const { id: entityId } = await this.retreiveAnEntity();
         const UizaPlayerSDK = window.UizaPlayerSDK;
         UizaPlayerSDK.Player.init(
             '#player',
             {
               api: btoa('ap-southeast-1-api.uiza.co'),
-              appId: '098b45c5d7c046c0bf6cd16389486c4b',
+              appId: '700c91ac20334eb38642032d69783c45',
               playerVersion: 4,
               entityId: entityId,
               width: '100%',
@@ -229,8 +238,10 @@ class EntityDetail extends React.Component {
 
                 if(code === 200) {
                     if(data.progress === 100) {
+                        const player = document.getElementById('player');
+                        player.innerHTML = '';
                         this.setState({ isModalConfirmPublishOpened: false });
-                        this.retreiveAnEntity();
+                        this.initializeUizaPlayer();
                         clearInterval(intervalProgress);
                     }
 
@@ -302,7 +313,7 @@ class EntityDetail extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ModalConfirm isOpen={isModalConfirmPublishOpened} toggle={this.toggleModalPublishConfirmation} confirmAction={this.callPublishEntityApi} modalHeader="Delete Confirmation">
+                <ModalConfirm isOpen={isModalConfirmPublishOpened} toggle={this.toggleModalPublishConfirmation} confirmAction={this.callPublishEntityApi} modalHeader="Publish Confirmation">
                     { showPublishProgress ? this.showPublishProgressBar() : modalConfirmNote }
                 </ModalConfirm>
             </>

@@ -36,7 +36,7 @@ class LiveStreamList extends React.Component {
         const { liveStreams } = this.state;
 
         return liveStreams.map((stream, index) => {
-            let thumbnail = stream.thumbnail.length === 0 ? "/assets/img/image-not-available.jpg" : stream.thumbnail;
+            let thumbnail = stream.thumbnail && stream.thumbnail.length > 0 ? stream.thumbnail : "/assets/img/image-not-available.jpg";
             let liveStreamBtn = () => {
                 switch(stream.lastProcess) {
                     case "stop":
@@ -65,9 +65,10 @@ class LiveStreamList extends React.Component {
         });
     }
     render() {
-        console.log(this.state);
+
         return (
             <div className="livestream-list">
+                <Link to='/live-streaming/create'>Create New Stream</Link>
                 <div className="list-container">
                     { this.showListOfLiveStreams() }
                 </div>

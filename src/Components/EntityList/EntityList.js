@@ -120,7 +120,7 @@ class EntityList extends React.Component {
                     <td>{entity.type}</td>
                     <td><Badge className={publishStatusClass} data-id={entity.id}>{entity.publishToCdn}</Badge></td>
                     <td>
-                        <FontAwesomeIcon icon={faEdit}/>{' '}
+                        <Link to={`/entity/${entity.id}`}><FontAwesomeIcon icon={faEdit}/></Link>{' '}
                         <FontAwesomeIcon icon={faTrashAlt} onClick={() => this.toggleModalDeleteSingleConfirmation(entity.id)}/>
                     </td>
                 </tr>
@@ -142,7 +142,6 @@ class EntityList extends React.Component {
                 return paginationPage.map((page, index) => {
                     let nextPath = `/entity?limit=5&page=${page}`;
                     if(searchQuery.keyword !== undefined) {
-                        console.log('yes');
                         nextPath += `&keyword=${searchQuery.keyword}`;
                     }
                     return (
@@ -179,6 +178,10 @@ class EntityList extends React.Component {
         if(searchKeyword.length > 0) {
             this.props.history.push(`/entity?limit=5&page=1&keyword=${searchKeyword}`);
             this.callSearchEntityApi(searchKeyword);
+        }
+        else {
+            this.props.history.push(`/entity?limit=5&page=1`);
+            this.retreiveListEntities();
         }
     }, 1500);
 

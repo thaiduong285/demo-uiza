@@ -6,6 +6,7 @@ import NavBar from "./NavBar/NavBar";
 import NotFound from "./NotFound/NotFound";
 import EntityCreate from "./EntityCreate/EntityCreate";
 import LiveStreamDetail from "./LiveStreamDetail/LiveStreamDetail";
+import LiveStreamCreate from "./LiveStreamCreate/LiveStreamCreate";
 
 export {
     CategoryList,
@@ -13,6 +14,7 @@ export {
     EntityList,
     LiveStreamList,
     LiveStreamDetail,
+    LiveStreamCreate,
     NotFound,
     EntityCreate,
     NavBar

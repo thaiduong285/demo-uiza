@@ -85,7 +85,6 @@ class EntityCreate extends React.Component {
 
     handleSubmitCreateEntity = async e => {
         e.preventDefault();
-        const formElement = e.target;
         const { entityUrl, name, description } = this.state;
 
         if(entityUrl.length > 0 && name.length > 0) {
@@ -101,12 +100,14 @@ class EntityCreate extends React.Component {
                 let { code, data } = res.data;
 
                 if(code === 200) {
-                    console.log('success');
                     let { listOfNewEntities } = this.state;
                     listOfNewEntities.push(data);
-                    this.setState({ listOfNewEntities });
-
-                    formElement.reset();
+                    this.setState({ 
+                        listOfNewEntities,
+                        name: "",
+                        entityUrl: "",
+                        description: ""
+                    });
                 }
             }
             catch(err) {

@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
 
     axios.defaults.baseURL = "https://ap-southeast-1-api.uiza.co/api/public/v4";
-    axios.defaults.headers.common['Authorization'] = "uap-098b45c5d7c046c0bf6cd16389486c4b-74fbf5f5";
+    axios.defaults.headers.common['Authorization'] = "uap-700c91ac20334eb38642032d69783c45-12843bda";
   }
 
   render() {
@@ -22,6 +22,7 @@ class App extends Component {
             <Route path="/entity/create" component={Components.EntityCreate} />
             <Route path="/entity/:id" component={Components.EntityDetail} />
             <Route path="/entity" component={Components.EntityList} />
+            <Route path="/live-streaming/create" component={Components.LiveStreamCreate} />
             <Route path="/live-streaming/:id" component={Components.LiveStreamDetail} />
             <Route path="/live-streaming" component={Components.LiveStreamList} />
             <Route path="*" exact component={Components.NotFound} />

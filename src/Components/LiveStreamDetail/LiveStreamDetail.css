@@ -2,6 +2,14 @@
     margin-top: 40px;
 }
 
+.livestream-detail #player {
+    margin-bottom: 20px;
+}
+
+.livestream-detail .not-publish-holder {
+    margin-bottom: 20px;
+}
+
 .livestream-detail .livestream-control button {
     margin: 0 5px;
 }
@@ -18,6 +26,14 @@
     flex: none;
 }
 
+.livestream-detail .entity-form-detail .form-setting {
+    margin-left: 20px;
+}
+
+.livestream-detail .entity-form-detail .submit-form-edit {
+    margin-top: 10px;
+    width: 100%;
+}
 /* .livestream-detail .livestream-config .livestream-info, .livestream-setting {
     width: 50%;
 }
